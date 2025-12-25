@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sysnormal.libs.db.entities</groupId>
+	<artifactId>base-entities</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>base-entities</name>
+	<description>Sysnormal database base entities library</description>
+	<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
+
+	<organization>
+		<name>SYSNORMAL</name>
+		<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
+		<connection>scm:git:git://github.com/sysnormal1/java-db-base-entities-library.git</connection>
+		<developerConnection>scm:git:ssh://github.com/sysnormal1/java-db-base-entities-library.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>sysnormal</id>
+			<name>Alencar Velozo</name>
+			<email>sysnormal1@gmail.com</email>
+			<organization>SYSNORMAL</organization>
+			<organizationUrl>https://github.com/sysnormal1</organizationUrl>
+		</developer>
+	</developers>
+
+	<properties>
+		<java.version>21</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+
+		<!-- API padrão JPA -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.2.0</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Anotações e extensões específicas do Hibernate -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>7.2.0.Final</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>4.0.1</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Se usar Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.42</version>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-toolchains-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>toolchain</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<toolchains>
+						<jdk>21</jdk>
+					</toolchains>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
