@@ -3,7 +3,10 @@ package com.sysnormal.libs.db.entities.base_entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.Check;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.domain.Persistable;
 
 import java.time.LocalDateTime;
@@ -44,10 +47,15 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
     @Check(constraints = "is_sys_rec in (0,1)")
     private byte isSysRec = 0;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /**
+     * to avoid generics repetitions over all entities that inherits from this, if you want auto-create
+     * relationship foreign key self-table (parent) over this field, then declare this fild in your final
+     * entity, replacing type by final type of your entity
+     */
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", insertable = false, updatable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private BaseCommonEntity parent;
+    private BaseCommonEntity parent;*/
 
     @Transient
     private boolean isNew = true;
@@ -67,15 +75,4 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
         this.isNew = false;
     }
 
-    @PrePersist
-    @PreUpdate
-    protected void validateParentType() {
-        if (parent != null && parent.getClass() != this.getClass()) {
-            throw new IllegalStateException(
-                    "Parent must be of the same concrete type. " +
-                            "Expected: " + this.getClass().getName() +
-                            ", got: " + parent.getClass().getName()
-            );
-        }
-    }
 }
