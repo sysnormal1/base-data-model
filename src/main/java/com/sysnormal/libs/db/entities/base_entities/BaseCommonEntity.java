@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 @Setter
-public abstract class BaseCommonEntity<T extends BaseCommonEntity<T>>  extends BaseEntity implements Persistable<Long> {
+public abstract class BaseCommonEntity  extends BaseEntity implements Persistable<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
@@ -47,7 +47,7 @@ public abstract class BaseCommonEntity<T extends BaseCommonEntity<T>>  extends B
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", insertable = false, updatable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private T parent;
+    private BaseCommonEntity parent;
 
     @Transient
     private boolean isNew = true;
@@ -67,4 +67,15 @@ public abstract class BaseCommonEntity<T extends BaseCommonEntity<T>>  extends B
         this.isNew = false;
     }
 
+    @PrePersist
+    @PreUpdate
+    protected void validateParentType() {
+        if (parent != null && parent.getClass() != this.getClass()) {
+            throw new IllegalStateException(
+                    "Parent must be of the same concrete type. " +
+                            "Expected: " + this.getClass().getName() +
+                            ", got: " + parent.getClass().getName()
+            );
+        }
+    }
 }
