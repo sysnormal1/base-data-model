@@ -25,12 +25,12 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
     private Long parentId;
 
     @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false/*, secondPrecision = 0*/)
+    @ColumnDefault("current_timestamp(6)")
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    @ColumnDefault("null")
     private LocalDateTime updatedAt;
 
     @Column(name = "id_at_origin", length = 127)
