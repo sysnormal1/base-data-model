@@ -1,5 +1,6 @@
 package com.sysnormal.libs.db.entities.base_entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -17,6 +18,7 @@ public abstract class BaseCommonEntityWithParent<T extends BaseCommonEntityWithP
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", insertable = false, updatable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private T parent;
 
 }
