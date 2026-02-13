@@ -1,5 +1,6 @@
 package com.sysnormal.libs.db.entities.base_entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -58,6 +59,7 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
     private BaseCommonEntity parent;*/
 
     @Transient
+    @JsonIgnore
     private boolean isNew = true;
 
     public void setAsNew() {
@@ -65,6 +67,8 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
     }
 
     @Override
+    @Transient
+    @JsonIgnore
     public boolean isNew() {
         return isNew;
     }
