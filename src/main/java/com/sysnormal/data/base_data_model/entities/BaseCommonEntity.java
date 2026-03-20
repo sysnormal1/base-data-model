@@ -1,13 +1,10 @@
-package com.sysnormal.libs.db.entities.base_entities;
+package com.sysnormal.data.base_data_model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Check;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
 import org.springframework.data.domain.Persistable;
 
 import java.time.LocalDateTime;
@@ -16,7 +13,8 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 @Setter
-public abstract class BaseCommonEntity  extends BaseEntity implements Persistable<Long> {
+public abstract class BaseCommonEntity<T extends BaseCommonEntity<T>>  extends BaseEntity implements Persistable<Long> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
@@ -48,15 +46,11 @@ public abstract class BaseCommonEntity  extends BaseEntity implements Persistabl
     @Check(constraints = "is_sys_rec in (0,1)")
     private byte isSysRec = 0;
 
-    /**
-     * to avoid generics repetitions over all entities that inherits from this, if you want auto-create
-     * relationship foreign key self-table (parent) over this field, then declare this fild in your final
-     * entity, replacing type by final type of your entity
-     */
-    /*@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", insertable = false, updatable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private BaseCommonEntity parent;*/
+    @JsonIgnore
+    private T parent;
 
     @Transient
     @JsonIgnore

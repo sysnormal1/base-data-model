@@ -2,16 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sysnormal.libs.db.entities</groupId>
-	<artifactId>base-entities</artifactId>
+
+	<!--<groupId>com.sysnormal.data</groupId>-->
+	<groupId>io.github.sysnormal1.data</groupId>
+	<artifactId>base-data-model</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>base-entities</name>
+	<name>base-data-model</name>
 	<description>Sysnormal database base entities library</description>
-	<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
+	<url>https://github.com/sysnormal1/base-data-model</url>
 
 	<organization>
 		<name>SYSNORMAL</name>
-		<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
+		<url>https://github.com/sysnormal1/base-data-model</url>
 	</organization>
 
 	<licenses>
@@ -22,9 +24,9 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/sysnormal1/java-db-base-entities-library</url>
-		<connection>scm:git:git://github.com/sysnormal1/java-db-base-entities-library.git</connection>
-		<developerConnection>scm:git:ssh://github.com/sysnormal1/java-db-base-entities-library.git</developerConnection>
+		<url>https://github.com/sysnormal1/base-data-model</url>
+		<connection>scm:git:git://github.com/sysnormal1/base-data-model.git</connection>
+		<developerConnection>scm:git:ssh://github.com/sysnormal1/base-data-model.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -49,7 +51,7 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -57,6 +59,12 @@
 	</dependencyManagement>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<optional>true</optional>
+		</dependency>
 
 		<!-- API padrão JPA -->
 		<dependency>
@@ -90,10 +98,83 @@
 			<optional>true</optional>
 		</dependency>
 
+		<dependency>
+			<groupId>io.github.sysnormal1.commons.core</groupId>
+			<artifactId>utils-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.sysnormal1.commons.spring</groupId>
+			<artifactId>spring-data-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.15.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.4.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.12.0</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>3.2.8</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.10.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>central-releases</publishingServerId>
+					<autoPublish>true</autoPublish>
+					<checksums>required</checksums>
+				</configuration>
+			</plugin>
 
 		</plugins>
 	</build>

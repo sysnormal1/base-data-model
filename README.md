@@ -1,87 +1,62 @@
-# Sysnormal Database Base Entities Library
+# Sysnormal Base Data Model 
+![Version](https://img.shields.io/badge/maven--central-0.0.1--SNAPSHOT-orange)
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.x+-brightgreen)
+![Jakarta](https://img.shields.io/badge/Jakarta-EE-orange)
+![JPA](https://img.shields.io/badge/JPA-API-blue)
+![Hibernate](https://img.shields.io/badge/Hibernate-ORM-59666C)
+![Lombok](https://img.shields.io/badge/Lombok-annotations-pink)
+![Jackson](https://img.shields.io/badge/Jackson-JSON-blue)
+![Reflections](https://img.shields.io/badge/Reflections-runtime--scanning-lightgrey)
 
----
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 
-## 🚀 Purpose
+This package contains utilities.
 
-This library centralizes and standardizes JPA entity classes used across multiple systems.  
-Instead of duplicating entity definitions, applications simply import this library.
+## 📦 Maven Dependency
 
-Benefits include:
-
-- Consistency across services
-- Single source of truth for table mappings
-- Reduced maintenance and code duplication
-- Simplified integration databases
-
----
-
-## 🛠 Technologies Used
-
-- **Java 21+**
-- **Jakarta Persistence API (JPA)**
-- **Hibernate ORM**
-- **Spring Data (optional / provided scope)**
-- **Maven** for dependency management
-
----
-
-## 📥 Installation (Maven)
-
-Add this dependency to your application’s `pom.xml`:
+Add the dependency below to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>com.sysnormal.libs.db.entities</groupId>
-    <artifactId>base-entities</artifactId>
+    <groupId>io.github.sysnormal1.data</groupId>
+    <artifactId>base-data-model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
+## 🧬 Clone the repository
+
+To get started locally:
+
+```bash
+git clone https://github.com/sysnormal1/base-data-model.git
+```
+
+## 🔧 Build and Local Test
+
+```bash
+mvn clean install
+```
+
 ---
 
-## 🔧 Usage Example
-Importing an entity
-````java
-import com.sysnormal.libs.db.entities.base_entities.agents.Agent;
+## ⚖️ License
 
-@Service
-public class AgentService {
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-    @PersistenceContext
-    private EntityManager em;
-
-    public Agent find(Long id) {
-        return em.find(Agent.class, id);
-    }
-}
-
-````
-Repository Example (Spring Data)
-````java
-public interface AgentRepository extends JpaRepository<Agent, Long> {}
-````
 ---
-
-## 📚 How to Clone
-````bash
-git clone https://github.com/sysnormal1/java-db-base-entities-library.git
-
-````
-
-------------------------------------------------------------------------
-
-## 📜 License
-
-MIT License --- free for personal and commercial use.
-
-------------------------------------------------------------------------
 
 ## 👤 Author
 
 **Alencar Velozo**  
 GitHub: [@aalencarvz1](https://github.com/aalencarvz1)
-Organization: [@sysnormal1](https://github.com/sysnormal1)
-Software Engineer --- JPA, Hibernate, Spring & Database Specialist
 
-------------------------------------------------------------------------
+---
+## 👤 Organization
+
+**Sysnormal**  
+GitHub: [@sysnormal1](https://github.com/sysnormal1)
+
+---
+
