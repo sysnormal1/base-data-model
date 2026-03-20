@@ -8,7 +8,6 @@
 ![Lombok](https://img.shields.io/badge/Lombok-annotations-pink)
 ![Jackson](https://img.shields.io/badge/Jackson-JSON-blue)
 ![Reflections](https://img.shields.io/badge/Reflections-runtime--scanning-lightgrey)
-
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 
 This package contains utilities.
