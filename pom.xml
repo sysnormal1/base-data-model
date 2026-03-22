@@ -6,7 +6,7 @@
 	<!--<groupId>com.sysnormal.data</groupId>-->
 	<groupId>io.github.sysnormal1.data</groupId>
 	<artifactId>base-data-model</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>base-data-model</name>
 	<description>Sysnormal database base entities library</description>
 	<url>https://github.com/sysnormal1/base-data-model</url>
