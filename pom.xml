@@ -6,7 +6,7 @@
 	<!--<groupId>com.sysnormal.data</groupId>-->
 	<groupId>io.github.sysnormal1.data</groupId>
 	<artifactId>base-data-model</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>base-data-model</name>
 	<description>Sysnormal database base entities library</description>
 	<url>https://github.com/sysnormal1/base-data-model</url>
@@ -101,14 +101,14 @@
 		<dependency>
 			<groupId>io.github.sysnormal1.commons.core</groupId>
 			<artifactId>utils-core</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.2</version>
 			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>io.github.sysnormal1.commons.spring</groupId>
 			<artifactId>spring-data-utils</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.2</version>
 			<optional>true</optional>
 		</dependency>
 
