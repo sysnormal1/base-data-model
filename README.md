@@ -1,5 +1,8 @@
 # Sysnormal Base Data Model 
-![Version](https://img.shields.io/badge/maven--central-0.0.1--SNAPSHOT-orange)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.sysnormal1.data/base-data-model.svg)](https://central.sonatype.com/artifact/io.github.sysnormal1.data/base-data-model)
+[![MvnRepository](https://img.shields.io/badge/mvnrepository-view-blue)](https://mvnrepository.com/artifact/io.github.sysnormal1.data/base-data-model)
+[![GitHub tag](https://img.shields.io/github/v/tag/sysnormal1/base-data-model)](https://github.com/sysnormal1/base-data-model)
+
 ![Java](https://img.shields.io/badge/Java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.x+-brightgreen)
 ![Jakarta](https://img.shields.io/badge/Jakarta-EE-orange)
@@ -20,7 +23,7 @@ Add the dependency below to your `pom.xml`:
 <dependency>
     <groupId>io.github.sysnormal1.data</groupId>
     <artifactId>base-data-model</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 

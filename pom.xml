@@ -6,7 +6,7 @@
 	<!--<groupId>com.sysnormal.data</groupId>-->
 	<groupId>io.github.sysnormal1.data</groupId>
 	<artifactId>base-data-model</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>base-data-model</name>
 	<description>Sysnormal database base entities library</description>
 	<url>https://github.com/sysnormal1/base-data-model</url>
@@ -51,7 +51,7 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>4.0.4</version>
+				<version>4.0.5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -63,21 +63,18 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- API padrão JPA -->
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- Anotações e extensões específicas do Hibernate -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>
@@ -95,21 +92,18 @@
 		<dependency>
 			<groupId>tools.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>io.github.sysnormal1.commons.core</groupId>
 			<artifactId>utils-core</artifactId>
-			<version>0.0.2</version>
-			<optional>true</optional>
+			<version>0.0.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.github.sysnormal1.commons.spring</groupId>
 			<artifactId>spring-data-utils</artifactId>
-			<version>0.0.2</version>
-			<optional>true</optional>
+			<version>0.0.3</version>
 		</dependency>
 
 	</dependencies>
